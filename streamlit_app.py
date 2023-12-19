@@ -40,9 +40,24 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 # st.file_uploader(label, type=None, accept_multiple_files=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility="visible")
 
-if st.button('Upload File'):
+# if st.button('Upload File'):
+#     uploaded_file = st.file_uploader("Choose a file")
+#     print(uploaded_file)
+#     if uploaded_file is not None:
+#         # print(uploaded_file)
+#         st.write("You selected the file:", uploaded_file.name)
+
+if 'clicked' not in st.session_state:
+    st.session_state.clicked = False
+
+def set_clicked():
+    st.session_state.clicked = True
+
+st.button('Upload File', on_click=set_clicked)
+if st.session_state.clicked:
     uploaded_file = st.file_uploader("Choose a file")
     print(uploaded_file)
     if uploaded_file is not None:
         # print(uploaded_file)
         st.write("You selected the file:", uploaded_file.name)
+        
