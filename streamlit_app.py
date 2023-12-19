@@ -77,6 +77,10 @@ In the meantime, below is an example of what you can do with just a few lines of
 #             st.write("You selected the file:", uploaded_file.name)
 
 
+# Placeholder for readme_text
+readme_text = st.empty()
+
+# Once we have the dependencies, add a selector for the app mode on the sidebar.
 st.sidebar.title("What to do")
 app_mode = st.sidebar.selectbox("Choose the app mode",
     ["Show instructions", "Upload file", "Show the source code"])
@@ -85,7 +89,7 @@ if app_mode == "Show instructions":
 elif app_mode == "Show the source code":
     readme_text.empty()
     st.code(get_file_content_as_string("streamlit_app.py"))
-elif app_mode == "Upload file":  # Changed this line
+elif app_mode == "Upload file":
     readme_text.empty()
     run_the_app()
 
@@ -102,5 +106,4 @@ def run_the_app():
         uploaded_file = st.file_uploader("Choose a file")
         print(uploaded_file)
         if uploaded_file is not None:
-            # print(uploaded_file)
             st.write("You selected the file:", uploaded_file.name)
