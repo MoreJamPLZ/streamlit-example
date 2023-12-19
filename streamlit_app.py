@@ -38,4 +38,11 @@ In the meantime, below is an example of what you can do with just a few lines of
 #         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
 #     ))
 
-st.file_uploader(label, type=None, accept_multiple_files=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility="visible")
+# st.file_uploader(label, type=None, accept_multiple_files=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, label_visibility="visible")
+
+if st.button('Upload File'):
+    uploaded_file = st.file_uploader("Choose a file")
+    print(uploaded_file)
+    if uploaded_file is not None:
+        # print(uploaded_file)
+        st.write("You selected the file:", uploaded_file.name)
