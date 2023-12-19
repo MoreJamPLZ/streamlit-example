@@ -40,10 +40,6 @@ import streamlit as st
 #             # print(uploaded_file)
 #             st.write("You selected the file:", uploaded_file.name)
 
-
-# Placeholder for readme_text
-readme_text = st.empty()
-
 # Once we have the dependencies, add a selector for the app mode on the sidebar.
 st.sidebar.title("What to do")
 app_mode = st.sidebar.selectbox("Choose the app mode",
